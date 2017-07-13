@@ -5,8 +5,7 @@ import {
 } from 'react-native'
 import Colors from './../styles/colors'
 
-import MainScreen from './../screens/main.screen.js'
-
+import MainScreen from './../screens/mainScreen'
 
 const headerStyle = {
     backgroundColor : Colors.backgroundHeader,
@@ -29,7 +28,7 @@ export default StackNavigator(
     },
     {
         cardStyle : {
-          paddingTop : Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+          marginTop : Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
         }
     }
 )
