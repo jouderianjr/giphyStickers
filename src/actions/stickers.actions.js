@@ -10,9 +10,9 @@ const API_KEY = '76792192255c42c3a11c58ea1acfbe27'
 const BASE_URL = 'https://api.giphy.com/v1/stickers/'
 
 export const getTrendingStickers = () => {
-
+    const offset = Math.floor(Math.random() * 1000)
     return (dispatch) => {
-        const url = `${BASE_URL}trending?api_key=${API_KEY}&limit=24`
+        const url = `${BASE_URL}trending?api_key=${API_KEY}&limit=24&offset=${offset}`
 
         dispatch({ type : GET_TRENDING_STICKERS_STARTED })
 
