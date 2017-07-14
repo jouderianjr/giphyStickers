@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
     FlatList,
+    StyleSheet,
 } from 'react-native'
 
 import { StickerListItem }  from './'
@@ -16,6 +17,7 @@ class StickerList extends Component {
     render() {
         return (
             <FlatList
+                contentContainerStyle={styles.list}
                 onRefresh={this.props.onRefresh}
                 refreshing={this.props.isRefreshing}
                 data={this.props.stickers}
@@ -26,6 +28,14 @@ class StickerList extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    list : {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    }
+})
 
 StickerList.propTypes = {
     isRefreshing : PropTypes.bool,

@@ -12,7 +12,7 @@ const BASE_URL = 'https://api.giphy.com/v1/stickers/'
 export const getTrendingStickers = () => {
 
     return (dispatch) => {
-        const url = `${BASE_URL}trending?api_key=${API_KEY}`
+        const url = `${BASE_URL}trending?api_key=${API_KEY}&limit=24`
 
         dispatch({ type : GET_TRENDING_STICKERS_STARTED })
 

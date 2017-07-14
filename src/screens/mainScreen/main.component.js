@@ -20,7 +20,10 @@ class MainScreen extends React.Component {
         return(
             <View style={styles.view}>
                 <PageLoadingIndicator isLoading={this.props.isLoading}/>
-                <StickerList stickers={this.props.stickers} />
+                <StickerList
+                    isRefreshing={this.props.isLoading}
+                    onRefresh={this.props.getTrendingStickers.bind(this)}
+                    stickers={this.props.stickers} />
             </View>
         )
     }
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
         flex : 1,
         alignItems      : 'center',
         justifyContent  : 'center',
+        backgroundColor : '#111111'
     },
 })
 

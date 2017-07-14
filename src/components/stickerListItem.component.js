@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import {
     View,
     Text,
-    Image
+    Image,
+    StyleSheet,
+    Dimensions
 } from 'react-native'
 
 class StickerListItem extends Component {
@@ -20,22 +22,54 @@ class StickerListItem extends Component {
     }
 
     render() {
+        const image = this.props.sticker.images.original;
+
         return(
-            <View>
+            <View style={styles.item}>
                 <Image
-                    style={{width: 100, height: 100}}
-                    source={{uri: this.props.sticker.images.original.url}}
+                    style={styles.gif}
+                    source={{uri: image.url}}
                 />
-                <Text>{this.getUsername(this)}</Text>
+                <Text
+                    numberOfLines={1}
+                    style={styles.username}>
+                    {this.getUsername(this)}
+                </Text>
             </View>
         )
     }
 }
 
+const { width } = Dimensions.get('window')
+
+const styles = StyleSheet.create({
+    item : {
+        flex            : 1,
+        backgroundColor : 'white',
+        margin          : 8,
+        width           : (width / 2) - 16,
+        borderColor     : '#131313',
+        borderWidth     : 1,
+        elevation       : 10
+    },
+    username : {
+        color     : '#121212',
+        textAlign : 'center',
+        paddingLeft : 8,
+        paddingRight : 8,
+    },
+    gif : {
+        alignItems     : 'center',
+        justifyContent : 'center',
+        alignSelf      : 'center',
+        resizeMode     : 'contain',
+        width          : 100,
+        height         : 100
+    }
+})
+
 StickerListItem.propTypes = {
     sticker : PropTypes.object.isRequired
 }
 
-export {
-    StickerListItem
-}
+export { StickerListItem }
