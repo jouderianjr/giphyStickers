@@ -28,7 +28,7 @@ export default StackNavigator(
     },
     {
         cardStyle : {
-          marginTop : Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+            borderTopWidth : Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
         }
     }
 )
