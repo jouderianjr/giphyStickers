@@ -6,7 +6,9 @@ import {
     Text,
     Image,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    Share,
+    TouchableNativeFeedback
 } from 'react-native'
 
 class StickerListItem extends Component {
@@ -25,17 +27,21 @@ class StickerListItem extends Component {
         const image = this.props.sticker.images.original;
 
         return(
-            <View style={styles.item}>
-                <Image
-                    style={styles.gif}
-                    source={{uri: image.url}}
-                />
-                <Text
-                    numberOfLines={1}
-                    style={styles.username}>
-                    {this.getUsername(this)}
-                </Text>
-            </View>
+            <TouchableNativeFeedback
+                onPress={ () => Share.share({message: image.url})}>
+
+                <View style={styles.item}>
+                    <Image
+                        style={styles.gif}
+                        source={{uri: image.url}}
+                    />
+                    <Text
+                        numberOfLines={1}
+                        style={styles.username}>
+                        {this.getUsername(this)}
+                    </Text>
+                </View>
+            </TouchableNativeFeedback>
         )
     }
 }
