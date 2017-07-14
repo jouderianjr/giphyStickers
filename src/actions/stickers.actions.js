@@ -18,14 +18,12 @@ export const getTrendingStickers = () => {
 
         axios.get(url)
             .then(response => {
-                console.warn(JSON.stringify(response))
                 dispatch({
                     type    : GET_TRENDING_STICKERS_SUCCEEDED,
                     payload : response.data.data
                 })
             })
             .catch(response => {
-                console.warn(response)
                 dispatch({
                     type  : GET_TRENDING_STICKERS_FAILED,
                     error : response.error

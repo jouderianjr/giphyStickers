@@ -1,10 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     View,
-    Text,
     StyleSheet,
-    ActivityIndicator,
 } from 'react-native'
+
+import {
+    StickerList,
+    PageLoadingIndicator
+} from './../../components'
 
 class MainScreen extends React.Component {
 
@@ -12,26 +16,11 @@ class MainScreen extends React.Component {
         this.props.getTrendingStickers();
     }
 
-    renderLoading() {
-        if (this.props.isLoading) {
-            return (
-                <ActivityIndicator
-                    style={styles.loading}
-                    color='black'
-                    animating={true}
-                    size='large'>
-                </ActivityIndicator>
-            )
-        } else {
-            return null
-        }
-    }
-
     render() {
         return(
             <View style={styles.view}>
-                {this.renderLoading()}
-                <Text>{JSON.stringify(this.props.stickers)}</Text>
+                <PageLoadingIndicator isLoading={this.props.isLoading}/>
+                <StickerList stickers={this.props.stickers} />
             </View>
         )
     }
@@ -43,9 +32,12 @@ const styles = StyleSheet.create({
         alignItems      : 'center',
         justifyContent  : 'center',
     },
-    loading : {
-        position : 'absolute'
-    }
 })
+
+MainScreen.propTypes = {
+    isLoading           : PropTypes.bool.isRequired,
+    stickers            : PropTypes.array.isRequired,
+    getTrendingStickers : PropTypes.func.isRequired
+}
 
 export default MainScreen
