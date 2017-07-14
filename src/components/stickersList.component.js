@@ -2,23 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
     FlatList,
-    RefreshControl
 } from 'react-native'
 
 import { StickerListItem }  from './'
 
 class StickerList extends Component {
-    getRefreshControl() {
-        if(this.props.onRefresh) {
-            return (
-                <RefreshControl
-                    refreshing={this.props.isRefreshing}
-                    onRefresh={this.props.onRefresh}
-                />
-            )
-        }
-    }
-
     renderRow({item}) {
         return (
             <StickerListItem sticker={item}/>
