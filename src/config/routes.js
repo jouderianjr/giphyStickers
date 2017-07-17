@@ -20,7 +20,7 @@ export default StackNavigator(
         MainScreen : {
             screen            : MainScreen,
             navigationOptions : {
-                title            : 'GiphyApp',
+                title            : 'Giphy Roulette',
                 headerStyle      : headerStyle,
                 headerTitleStyle : headerTitleStyle,
             }
