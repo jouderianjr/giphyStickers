@@ -35,7 +35,7 @@ describe('<MainScreen />', () =>{
         )
         const tree = renderer.getRenderOutput()
 
-        expect(tree.props.children[1].type).toEqual(StickerList)
+        expect(tree.props.children[0].type).toEqual(StickerList)
     })
 
 })
