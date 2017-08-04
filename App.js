@@ -11,6 +11,6 @@ export default class App extends React.Component {
                 <Routes>
                 </Routes>
             </Provider>
-        );
+        )
     }
 }

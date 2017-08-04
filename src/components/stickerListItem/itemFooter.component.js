@@ -9,7 +9,6 @@ import {
 import { ImageWithIconPlaceholder } from './..'
 
 const ItemFooter = ({title, avatar}) => {
-
     return (
         <View style={styles.item}>
             <ImageWithIconPlaceholder

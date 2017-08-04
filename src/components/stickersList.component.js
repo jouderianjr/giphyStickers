@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {
     FlatList,
@@ -7,26 +7,20 @@ import {
 
 import { StickerListItem }  from './'
 
-class StickerList extends Component {
-    renderRow({item}) {
-        return (
-            <StickerListItem sticker={item}/>
-        )
-    }
+const StickerList = ({onRefresh, isRefreshing, stickers}) => {
+    const renderRow = ({item}) => <StickerListItem sticker={item}/>
 
-    render() {
-        return (
-            <FlatList
-                contentContainerStyle={styles.list}
-                onRefresh={this.props.onRefresh}
-                refreshing={this.props.isRefreshing}
-                data={this.props.stickers}
-                renderItem={this.renderRow.bind(this)}
-                enableEmptySections={true}
-                keyExtractor={(item) => item.id}
-            />
-        )
-    }
+    return (
+        <FlatList
+            contentContainerStyle={styles.list}
+            onRefresh={onRefresh}
+            refreshing={isRefreshing}
+            data={stickers}
+            renderItem={renderRow}
+            enableEmptySections={true}
+            keyExtractor={(item) => item.id}
+        />
+    )
 }
 
 const styles = StyleSheet.create({

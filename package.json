@@ -26,7 +26,7 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "jest-expo",
+    "preset": "jest-expo"
   },
   "dependencies": {
     "axios": "^0.16.2",
