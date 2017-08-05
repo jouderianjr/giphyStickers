@@ -1,3 +1,9 @@
+<p align="center">
+    <img width="25%" src="screenshots/main.png" alt="Main">
+    <img width="25%" src="screenshots/share.png" alt="Main">
+</p>
+
+
 ## Description
 
 Hey, this is my first attempt using React native and redux!
